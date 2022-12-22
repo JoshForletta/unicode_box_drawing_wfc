@@ -1,0 +1,7 @@
+[package]
+name = "unicode_box_drawing_wfc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wfc = { path = "/Users/josh/projects/wfc" }
