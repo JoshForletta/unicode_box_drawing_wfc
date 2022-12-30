@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-wfc = { path = "/Users/josh/projects/wfc" }
+tiled_wfc = { path = "/Users/josh/projects/tiled_wfc" }

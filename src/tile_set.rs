@@ -1,4 +1,4 @@
-use wfc::AxisPair;
+use tiled_wfc::AxisPair;
 
 use crate::{Socket, Tile};
 use Socket::*;
@@ -1590,56 +1590,56 @@ pub const TILES: &[Tile] = &[
     //         },
     //     ],
     // },
-    Tile {
-        character: '╼',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╽',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '╾',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╿',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-        ],
-    },
+    // Tile {
+    //     character: '╼',
+    //     sockets: [
+    //         AxisPair {
+    //             pos: Bold,
+    //             neg: Normal,
+    //         },
+    //         AxisPair {
+    //             pos: Empty,
+    //             neg: Empty,
+    //         },
+    //     ],
+    // },
+    // Tile {
+    //     character: '╽',
+    //     sockets: [
+    //         AxisPair {
+    //             pos: Empty,
+    //             neg: Empty,
+    //         },
+    //         AxisPair {
+    //             pos: Normal,
+    //             neg: Bold,
+    //         },
+    //     ],
+    // },
+    // Tile {
+    //     character: '╾',
+    //     sockets: [
+    //         AxisPair {
+    //             pos: Normal,
+    //             neg: Bold,
+    //         },
+    //         AxisPair {
+    //             pos: Empty,
+    //             neg: Empty,
+    //         },
+    //     ],
+    // },
+    // Tile {
+    //     character: '╿',
+    //     sockets: [
+    //         AxisPair {
+    //             pos: Empty,
+    //             neg: Empty,
+    //         },
+    //         AxisPair {
+    //             pos: Bold,
+    //             neg: Normal,
+    //         },
+    //     ],
+    // },
 ];

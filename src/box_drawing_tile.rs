@@ -1,4 +1,4 @@
-use wfc::AxisPair;
+use tiled_wfc::{AxisPair, Tile as TileTrait};
 
 #[derive(Debug)]
 pub struct Tile {
@@ -6,7 +6,7 @@ pub struct Tile {
     pub sockets: [AxisPair<Socket>; 2],
 }
 
-impl wfc::Tile<2> for Tile {
+impl TileTrait<2> for Tile {
     type Socket = Socket;
 
     fn sockets(&self) -> [AxisPair<Self::Socket>; 2] {
