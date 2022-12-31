@@ -1,1645 +1,257 @@
-use tiled_wfc::AxisPair;
-
 use crate::{Socket, Tile};
 use Socket::*;
 
 pub const TILES: &[Tile] = &[
-    Tile {
-        character: ' ',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '─',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '━',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '│',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┃',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┄',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┅',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┆',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┇',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┈',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┉',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┊',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┋',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┌',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┍',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┎',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┏',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┐',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┑',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┒',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┓',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '└',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┕',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┖',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┗',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┘',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┙',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┚',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┛',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '├',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┝',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┞',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┟',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┠',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┡',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┢',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┣',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┤',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┥',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┦',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┧',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┨',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┩',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┪',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┫',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┬',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┭',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┮',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┯',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┰',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┱',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┲',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┳',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '┴',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┵',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┶',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┷',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┸',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┹',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┺',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┻',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '┼',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┽',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┾',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '┿',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╀',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╁',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '╂',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '╃',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╄',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╅',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '╆',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '╇',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╈',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '╉',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '╊',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '╋',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '╌',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╍',
-        sockets: [
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╎',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╏',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Bold,
-                neg: Bold,
-            },
-        ],
-    },
-    Tile {
-        character: '═',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '║',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╒',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╓',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╔',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╕',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╖',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╗',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╘',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╙',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╚',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╛',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╜',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╝',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╞',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╟',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╠',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╡',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╢',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╣',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╤',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╥',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╦',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╧',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╨',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╩',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╪',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╫',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╬',
-        sockets: [
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-            AxisPair {
-                pos: Double,
-                neg: Double,
-            },
-        ],
-    },
-    Tile {
-        character: '╭',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╮',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-        ],
-    },
-    Tile {
-        character: '╯',
-        sockets: [
-            AxisPair {
-                pos: Empty,
-                neg: Normal,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    Tile {
-        character: '╰',
-        sockets: [
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-            AxisPair {
-                pos: Normal,
-                neg: Empty,
-            },
-        ],
-    },
-    // Tile {
-    //     character: '╴',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Normal,
-    //         },
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╵',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //         AxisPair {
-    //             pos: Normal,
-    //             neg: Empty,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╶',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Normal,
-    //             neg: Empty,
-    //         },
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╷',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Normal,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╸',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Bold,
-    //         },
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╹',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //         AxisPair {
-    //             pos: Bold,
-    //             neg: Empty,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╺',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Bold,
-    //             neg: Empty,
-    //         },
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╻',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Bold,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╼',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Bold,
-    //             neg: Normal,
-    //         },
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╽',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //         AxisPair {
-    //             pos: Normal,
-    //             neg: Bold,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╾',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Normal,
-    //             neg: Bold,
-    //         },
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //     ],
-    // },
-    // Tile {
-    //     character: '╿',
-    //     sockets: [
-    //         AxisPair {
-    //             pos: Empty,
-    //             neg: Empty,
-    //         },
-    //         AxisPair {
-    //             pos: Bold,
-    //             neg: Normal,
-    //         },
-    //     ],
-    // },
+    Tile::new(' ', Empty, Empty, Empty, Empty),
+    Tile::new('─', Normal, Normal, Empty, Empty),
+    Tile::new('━', Bold, Bold, Empty, Empty),
+    Tile::new('│', Empty, Empty, Normal, Normal),
+    Tile::new('┃', Empty, Empty, Bold, Bold),
+    Tile::new('┄', Normal, Normal, Empty, Empty),
+    Tile::new('┅', Bold, Bold, Empty, Empty),
+    Tile::new('┆', Empty, Empty, Normal, Normal),
+    Tile::new('┇', Empty, Empty, Bold, Bold),
+    Tile::new('┈', Normal, Normal, Empty, Empty),
+    Tile::new('┉', Bold, Bold, Empty, Empty),
+    Tile::new('┊', Empty, Empty, Normal, Normal),
+    Tile::new('┋', Empty, Empty, Bold, Bold),
+    Tile::new('┌', Normal, Empty, Empty, Normal),
+    Tile::new('┍', Bold, Empty, Empty, Normal),
+    Tile::new('┎', Normal, Empty, Empty, Bold),
+    Tile::new('┏', Bold, Empty, Empty, Bold),
+    Tile::new('┐', Empty, Normal, Empty, Normal),
+    Tile::new('┑', Empty, Bold, Empty, Normal),
+    Tile::new('┒', Empty, Normal, Empty, Bold),
+    Tile::new('┓', Empty, Bold, Empty, Bold),
+    Tile::new('└', Normal, Empty, Normal, Empty),
+    Tile::new('┕', Bold, Empty, Normal, Empty),
+    Tile::new('┖', Normal, Empty, Bold, Empty),
+    Tile::new('┗', Bold, Empty, Bold, Empty),
+    Tile::new('┘', Empty, Normal, Normal, Empty),
+    Tile::new('┙', Empty, Bold, Normal, Empty),
+    Tile::new('┚', Empty, Normal, Bold, Empty),
+    Tile::new('┛', Empty, Bold, Bold, Empty),
+    Tile::new('├', Normal, Empty, Normal, Normal),
+    Tile::new('┝', Bold, Empty, Normal, Normal),
+    Tile::new('┞', Normal, Empty, Bold, Normal),
+    Tile::new('┟', Normal, Empty, Normal, Bold),
+    Tile::new('┠', Normal, Empty, Bold, Bold),
+    Tile::new('┡', Bold, Empty, Bold, Normal),
+    Tile::new('┢', Bold, Empty, Normal, Bold),
+    Tile::new('┣', Bold, Empty, Bold, Bold),
+    Tile::new('┤', Empty, Normal, Normal, Normal),
+    Tile::new('┥', Empty, Bold, Normal, Normal),
+    Tile::new('┦', Empty, Normal, Bold, Normal),
+    Tile::new('┧', Empty, Normal, Normal, Bold),
+    Tile::new('┨', Empty, Normal, Bold, Bold),
+    Tile::new('┩', Empty, Bold, Bold, Normal),
+    Tile::new('┪', Empty, Bold, Normal, Bold),
+    Tile::new('┫', Empty, Bold, Bold, Bold),
+    Tile::new('┬', Normal, Normal, Empty, Normal),
+    Tile::new('┭', Normal, Bold, Empty, Normal),
+    Tile::new('┮', Bold, Normal, Empty, Normal),
+    Tile::new('┯', Bold, Bold, Empty, Normal),
+    Tile::new('┰', Normal, Normal, Empty, Bold),
+    Tile::new('┱', Normal, Bold, Empty, Bold),
+    Tile::new('┲', Bold, Normal, Empty, Bold),
+    Tile::new('┳', Bold, Bold, Empty, Bold),
+    Tile::new('┴', Normal, Normal, Normal, Empty),
+    Tile::new('┵', Normal, Bold, Normal, Empty),
+    Tile::new('┶', Bold, Normal, Normal, Empty),
+    Tile::new('┷', Bold, Bold, Normal, Empty),
+    Tile::new('┸', Normal, Normal, Bold, Empty),
+    Tile::new('┹', Normal, Bold, Bold, Empty),
+    Tile::new('┺', Bold, Normal, Bold, Empty),
+    Tile::new('┻', Bold, Bold, Bold, Empty),
+    Tile::new('┼', Normal, Normal, Normal, Normal),
+    Tile::new('┽', Normal, Bold, Normal, Normal),
+    Tile::new('┾', Bold, Normal, Normal, Normal),
+    Tile::new('┿', Bold, Bold, Normal, Normal),
+    Tile::new('╀', Normal, Normal, Bold, Normal),
+    Tile::new('╁', Normal, Normal, Normal, Bold),
+    Tile::new('╂', Normal, Normal, Bold, Bold),
+    Tile::new('╃', Normal, Bold, Bold, Normal),
+    Tile::new('╄', Bold, Normal, Bold, Normal),
+    Tile::new('╅', Normal, Bold, Normal, Bold),
+    Tile::new('╆', Bold, Normal, Normal, Bold),
+    Tile::new('╇', Bold, Bold, Bold, Normal),
+    Tile::new('╈', Bold, Bold, Normal, Bold),
+    Tile::new('╉', Normal, Bold, Bold, Bold),
+    Tile::new('╊', Bold, Normal, Bold, Bold),
+    Tile::new('╋', Bold, Bold, Bold, Bold),
+    Tile::new('╌', Normal, Normal, Empty, Empty),
+    Tile::new('╍', Bold, Bold, Empty, Empty),
+    Tile::new('╎', Empty, Empty, Normal, Normal),
+    Tile::new('╏', Empty, Empty, Bold, Bold),
+    Tile::new('═', Double, Double, Empty, Empty),
+    Tile::new('║', Empty, Empty, Double, Double),
+    Tile::new('╒', Double, Empty, Empty, Normal),
+    Tile::new('╓', Normal, Empty, Empty, Double),
+    Tile::new('╔', Double, Empty, Empty, Double),
+    Tile::new('╕', Empty, Double, Empty, Normal),
+    Tile::new('╖', Empty, Normal, Empty, Double),
+    Tile::new('╗', Empty, Double, Empty, Double),
+    Tile::new('╘', Double, Empty, Normal, Empty),
+    Tile::new('╙', Normal, Empty, Double, Empty),
+    Tile::new('╚', Double, Empty, Double, Empty),
+    Tile::new('╛', Empty, Double, Normal, Empty),
+    Tile::new('╜', Empty, Normal, Double, Empty),
+    Tile::new('╝', Empty, Double, Double, Empty),
+    Tile::new('╞', Double, Empty, Normal, Normal),
+    Tile::new('╟', Normal, Empty, Double, Double),
+    Tile::new('╠', Double, Empty, Double, Double),
+    Tile::new('╡', Empty, Double, Normal, Normal),
+    Tile::new('╢', Empty, Normal, Double, Double),
+    Tile::new('╣', Empty, Double, Double, Double),
+    Tile::new('╤', Double, Double, Empty, Normal),
+    Tile::new('╥', Normal, Normal, Empty, Double),
+    Tile::new('╦', Double, Double, Empty, Double),
+    Tile::new('╧', Double, Double, Normal, Empty),
+    Tile::new('╨', Normal, Normal, Double, Empty),
+    Tile::new('╩', Double, Double, Double, Empty),
+    Tile::new('╪', Double, Double, Normal, Normal),
+    Tile::new('╫', Normal, Normal, Double, Double),
+    Tile::new('╬', Double, Double, Double, Double),
+    Tile::new('╭', Normal, Empty, Empty, Normal),
+    Tile::new('╮', Empty, Normal, Empty, Normal),
+    Tile::new('╯', Empty, Normal, Normal, Empty),
+    Tile::new('╰', Normal, Empty, Normal, Empty),
+    Tile::new('╴', Empty, Normal, Empty, Empty),
+    Tile::new('╵', Empty, Empty, Normal, Empty),
+    Tile::new('╶', Normal, Empty, Empty, Empty),
+    Tile::new('╷', Empty, Empty, Empty, Normal),
+    Tile::new('╸', Empty, Bold, Empty, Empty),
+    Tile::new('╹', Empty, Empty, Bold, Empty),
+    Tile::new('╺', Bold, Empty, Empty, Empty),
+    Tile::new('╻', Empty, Empty, Empty, Bold),
+    Tile::new('╼', Bold, Normal, Empty, Empty),
+    Tile::new('╽', Empty, Empty, Normal, Bold),
+    Tile::new('╾', Normal, Bold, Empty, Empty),
+    Tile::new('╿', Empty, Empty, Bold, Normal),
+    Tile::new(
+        '▀',
+        Block((true, false)),
+        Block((true, false)),
+        Block((true, true)),
+        Empty,
+    ),
+    Tile::new(
+        '▄',
+        Block((false, true)),
+        Block((false, true)),
+        Empty,
+        Block((true, true)),
+    ),
+    Tile::new(
+        '█',
+        Block((true, true)),
+        Block((true, true)),
+        Block((true, true)),
+        Block((true, true)),
+    ),
+    Tile::new(
+        '▌',
+        Empty,
+        Block((true, true)),
+        Block((true, false)),
+        Block((true, false)),
+    ),
+    Tile::new(
+        '▐',
+        Block((true, true)),
+        Empty,
+        Block((false, true)),
+        Block((false, true)),
+    ),
+    Tile::new(
+        '▖',
+        Empty,
+        Block((false, true)),
+        Empty,
+        Block((true, false)),
+    ),
+    Tile::new(
+        '▗',
+        Block((false, true)),
+        Empty,
+        Empty,
+        Block((false, true)),
+    ),
+    Tile::new(
+        '▘',
+        Empty,
+        Block((true, false)),
+        Block((true, false)),
+        Empty,
+    ),
+    Tile::new(
+        '▝',
+        Block((true, false)),
+        Empty,
+        Block((false, true)),
+        Empty,
+    ),
+    Tile::new(
+        '▙',
+        Block((false, true)),
+        Block((true, true)),
+        Block((true, false)),
+        Block((true, true)),
+    ),
+    Tile::new(
+        '▛',
+        Block((true, false)),
+        Block((true, true)),
+        Block((true, true)),
+        Block((true, false)),
+    ),
+    Tile::new(
+        '▜',
+        Block((true, true)),
+        Block((true, false)),
+        Block((true, true)),
+        Block((false, true)),
+    ),
+    Tile::new(
+        '▟',
+        Block((true, true)),
+        Block((false, true)),
+        Block((false, true)),
+        Block((true, true)),
+    ),
+    Tile::new(
+        '▚',
+        Block((false, true)),
+        Block((true, false)),
+        Block((true, false)),
+        Block((false, true)),
+    ),
+    Tile::new(
+        '▞',
+        Block((true, false)),
+        Block((false, true)),
+        Block((false, true)),
+        Block((true, false)),
+    ),
+    Tile::new(
+        '▓',
+        Block((true, true)),
+        Block((true, true)),
+        Block((true, true)),
+        Block((true, true)),
+    ),
+    Tile::new(
+        '▒',
+        Block((true, true)),
+        Block((true, true)),
+        Block((true, true)),
+        Block((true, true)),
+    ),
+    Tile::new(
+        '░',
+        Block((true, true)),
+        Block((true, true)),
+        Block((true, true)),
+        Block((true, true)),
+    ),
 ];
