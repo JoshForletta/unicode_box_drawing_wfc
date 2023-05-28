@@ -3,6 +3,12 @@
 version = 3
 
 [[package]]
+name = "bitflags"
+version = "2.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6776fc96284a0bb647b615056fc496d1fe1644a7ab01829818a6d91cae888b84"
+
+[[package]]
 name = "bitvec"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -46,8 +52,7 @@ checksum = "db6d7e329c562c5dfab7a46a2afabc8b987ab9a4834c9d1ca04dc54c1546cef8"
 [[package]]
 name = "nd_matrix"
 version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4e53f34d8a258cbec53132ead17e9c22a44f6b0f10b40964933fbf55712f1081"
+source = "git+https://github.com/JoshForletta/nd_matrix.git#603a4f003151eef732d9e0af227c532cda7b0437"
 
 [[package]]
 name = "ppv-lite86"
@@ -110,8 +115,6 @@ dependencies = [
 [[package]]
 name = "tiled_wfc"
 version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c80a1829d1243e7ffe186b46476199020b7a9432992f417039b8d0a8055be3e"
 dependencies = [
  "bitvec",
  "nd_matrix",
@@ -122,6 +125,7 @@ dependencies = [
 name = "unicode_box_drawing_wfc"
 version = "0.1.0"
 dependencies = [
+ "bitflags",
  "rand",
  "term_size",
  "tiled_wfc",
