@@ -7,7 +7,7 @@ use unicode_box_drawing_wfc::{
         DASHED_FOUR, DASHED_THREE, DASHED_TWO, DOUBLE, END_STOP, INTERSECTION_FOUR,
         INTERSECTION_THREE, INTERSECTION_TWO, MIXED, NORMAL, ROUNDED, STRAIGHT, TRANSITION,
     },
-    BDSocket, BDTile, TILE_SET,
+    UBDSocket, UBDTile, TILE_SET,
 };
 
 fn clear() {
@@ -42,7 +42,7 @@ fn reset() {
     print!("\u{1b}[m");
 }
 
-fn print_state(tile_set: &[BDTile], state: &State) {
+fn print_state(tile_set: &[UBDTile], state: &State) {
     match state {
         State::Collapsed(state) => print!("{}", tile_set[*state].character),
         State::Superimposed(state) => match state.count() {
@@ -63,7 +63,7 @@ fn print_state(tile_set: &[BDTile], state: &State) {
     }
 }
 
-fn print_matrix<'a, C, P>(wfc: &WFC<'a, BDTile, 2, C, P>)
+fn print_matrix<'a, C, P>(wfc: &WFC<'a, UBDTile, 2, C, P>)
 where
     C: Collapser,
     P: Picker<2>,

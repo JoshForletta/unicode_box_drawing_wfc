@@ -1,14 +1,14 @@
 use tiled_wfc::{AxisPair, Tile as TileTrait};
 
 #[derive(Debug, Clone, Copy)]
-pub struct BDTile {
+pub struct UBDTile {
     pub character: char,
-    pub sockets: [AxisPair<BDSocket>; 2],
+    pub sockets: [AxisPair<UBDSocket>; 2],
     pub tags_mask: usize,
 }
 
-impl BDTile {
-    pub const fn new(character: char, sockets: [AxisPair<BDSocket>; 2], tags_mask: usize) -> Self {
+impl UBDTile {
+    pub const fn new(character: char, sockets: [AxisPair<UBDSocket>; 2], tags_mask: usize) -> Self {
         Self {
             character,
             sockets,
@@ -22,8 +22,8 @@ impl BDTile {
     }
 }
 
-impl TileTrait<2> for BDTile {
-    type Socket = BDSocket;
+impl TileTrait<2> for UBDTile {
+    type Socket = UBDSocket;
 
     fn sockets(&self) -> [AxisPair<Self::Socket>; 2] {
         self.sockets
@@ -31,7 +31,7 @@ impl TileTrait<2> for BDTile {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum BDSocket {
+pub enum UBDSocket {
     Empty,
     Normal,
     Bold,
