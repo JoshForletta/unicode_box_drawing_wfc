@@ -1,4 +1,4 @@
-use tiled_wfc::{AxisPair, Tile as TileTrait};
+use tiled_wfc::{AxisPair, Tile};
 
 #[derive(Debug, Clone, Copy)]
 pub struct UBDTile {
@@ -22,7 +22,7 @@ impl UBDTile {
     }
 }
 
-impl TileTrait<2> for UBDTile {
+impl Tile<2> for UBDTile {
     type Socket = UBDSocket;
 
     fn sockets(&self) -> [AxisPair<Self::Socket>; 2] {
