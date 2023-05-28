@@ -1,4 +1,4 @@
-pub use tiled_wfc;
+pub use tiled_wfc::*;
 
 mod box_drawing_tile;
 mod tile_set;
